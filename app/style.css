@@ -37,9 +37,13 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: inherit;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 100%);
+    transition: background 0.5s ease, color 0.5s ease;
     padding: 0.8rem;
+}
+
+.main-container.dark {
+    background: linear-gradient(135deg, #232526 0%, #0f2027 100%);
 }
 
 .header {

@@ -21,7 +21,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="layout-wrapper">
             <Header />
-            <main className="main-content">{children}</main>
+            <main className="main-content" style={{ overflowY: "auto" }}>{children}</main>
             <footer className="footer">
               © 2025 Live Mirror. Built for remote teams.
             </footer>
