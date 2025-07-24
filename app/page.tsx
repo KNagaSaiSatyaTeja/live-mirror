@@ -3,10 +3,12 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import "./style.css";
-
+import logo from "../public/logo.png"; // Adjust the path as necessary
 export default function Home() {
   const { theme, setTheme } = useTheme();
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -17,26 +19,6 @@ export default function Home() {
     <div
       className={theme === "dark" ? "main-container dark" : "main-container"}
     >
-      <header className="header">
-        <div className="brand">
-          <Image
-            src="/logo.png"
-            alt="Live Mirror Logo"
-            width={40}
-            height={40}
-          />
-          <span className="brand-text">Live Mirror</span>
-        </div>
-        <button
-          className="theme-toggle"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          aria-label="Toggle theme"
-        >
-          {mounted &&
-            (theme === "dark" ? <FiMoon size={24} /> : <FiSun size={24} />)}
-        </button>
-      </header>
-
       <main className="content">
         <h1 className="title animate-fade-in">
           Real-Time Collaborative Code Editor
@@ -61,13 +43,13 @@ export default function Home() {
           </div>
         </div>
 
-        <button className="get-started-btn animate-glow">Get Started</button>
+        <button
+          className="get-started-btn animate-glow"
+          onClick={() => router.push("/creation")}
+        >
+          Get Started
+        </button>
       </main>
-
-      <footer className="footer">
-        &copy; {new Date().getFullYear()} Live Mirror. Built for remote teams
-        and live learning.
-      </footer>
     </div>
   );
 }
