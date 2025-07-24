@@ -1,9 +1,9 @@
-/* globals.css */
-
 html,
 body {
-  padding: 0;
+  height: 100%;
   margin: 0;
+  padding: 0;
+  overflow: auto;
   font-family: "Segoe UI", sans-serif;
   transition: background-color 0.4s ease, color 0.4s ease;
   background-color: #f0f0f0;
@@ -23,4 +23,23 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  overflow: auto;
+  /* allows scroll inside content without cutting footer */
+}
+
+.footer {
+  padding: 1rem;
+  text-align: center;
+  background: inherit;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
